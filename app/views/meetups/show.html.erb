@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @meetup.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @meetup.location %>
+</p>
+
+<%= link_to 'Edit', edit_meetup_path(@group) %> |
+<%= link_to 'Back', meetups_path %>
