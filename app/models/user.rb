@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :groups
+  has_many :groups
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,4 +12,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6, maximum: 15 }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

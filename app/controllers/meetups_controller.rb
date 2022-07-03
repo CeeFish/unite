@@ -1,5 +1,6 @@
-class User::MeetupsController < ApplicationController
-    before_action :set_group, only: %i[ show edit update destroy ]
+class MeetupsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
+    before_action :set_meetup, only: %i[ show edit update destroy ]
 
   # GET /meetups or /meetups.json
   def index
@@ -21,7 +22,7 @@ class User::MeetupsController < ApplicationController
 
   # POST /meetups or /meetups.json
   def create
-    @meetup = Meetup.new(group_params)
+    @meetup = Meetup.new(meetup_params)
     respond_to do |format|
       if @meetup.save
         format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully created." }
