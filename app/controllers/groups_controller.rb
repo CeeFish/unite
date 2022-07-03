@@ -66,4 +66,10 @@ class GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(:title, :location)
     end
+
+    def catch_not_found(e)
+      Rails.logger.debug("We had a not found exception.")
+      flash.alert = e.to_s
+      redirect_to groups_path
+    end
 end

@@ -1,2 +1,2 @@
-class RegistrationController < ApplicationController
+class User::RegistrationController < ApplicationController
 end
