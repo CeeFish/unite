@@ -12,8 +12,4 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6, maximum: 15 }
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
 end
