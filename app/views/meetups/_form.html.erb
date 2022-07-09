@@ -21,6 +21,21 @@
     <%= form.text_field :location %>
   </div>
 
+  <div class="field">
+    <%= form.label :group %>
+    <%= form.collection_select :group_id, Group.all, :id, :title, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.text_field :time %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

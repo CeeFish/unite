@@ -21,29 +21,49 @@ class MeetupsController < ApplicationController
   end
 
   # POST /meetups or /meetups.json
+  # def create
+  #   @meetup = Meetup.new(meetup_params)
+  #   respond_to do |format|
+  #     if @meetup.save
+  #       format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully created." }
+  #       format.json { render :show, status: :created, location: @meetup }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @meetup.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
   def create
-    @meetup = Meetup.new(meetup_params)
-    respond_to do |format|
+    byebug
+      @meetup = Meetup.new(meetup_params)
       if @meetup.save
-        format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully created." }
-        format.json { render :show, status: :created, location: @meetup }
+        flash.notice = "The meetup record was created successfully."
+        redirect_to @meetup
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @meetup.errors, status: :unprocessable_entity }
+        flash.now.alert = @meetup.errors.full_messages.to_sentence
+        render :new  
       end
-    end
   end
 
   # PATCH/PUT /meetups/1 or /meetups/1.json
-  def update
-    respond_to do |format|
-      if @meetup.update(meetup_params)
-        format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully updated." }
-        format.json { render :show, status: :ok, location: @meetup }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @meetup.errors, status: :unprocessable_entity }
-      end
+  # def update
+  #   respond_to do |format|
+  #     if @meetup.update(meetup_params)
+  #       format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @meetup }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @meetup.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+ def update
+    if @meetup.update(meetup_params)
+      flash.notice = "The meetup record was updated successfully."
+      redirect_to @meetup
+    else
+      flash.now.alert = @meetup.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
@@ -64,6 +84,12 @@ class MeetupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meetup_params
-      params.require(:meetup).permit(:title, :location, :user, :group, :date, :time)
+      params.require(:meetup).permit(:title, :location, :group, :date, :time)
+    end
+
+    def catch_not_found(e)
+      Rails.logger.debug("We had a not found exception.")
+      flash.alert = e.to_s
+      redirect_to orders_path
     end
 end

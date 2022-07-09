@@ -10,5 +10,20 @@
   <%= @meetup.location %>
 </p>
 
+<p>
+  <strong>Group:</strong>
+  <%= @meetup.group %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @meetup.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @meetup.time %>
+</p>
+
 <%= link_to 'Edit', edit_meetup_path(@group) %> |
 <%= link_to 'Back', meetups_path %>

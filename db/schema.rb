@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 2022_07_07_150853) do
   end
 
   create_table "meetups", force: :cascade do |t|
+    t.string "title"
+    t.string "location"
+    t.string "user"
+    t.string "group"
+    t.string "date"
+    t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
