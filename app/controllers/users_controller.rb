@@ -47,11 +47,15 @@ class UsersController < ApplicationController
   #     end
   # end
 def create
-   @user = User.create(params.require(:user).permit(:username,        
+   @user = User.create(params.require(:user).permit(:name, :email,       
    :password))
    session[:user_id] = @user.id
-   redirect_to '/welcome'
-end
+   redirect_to '/user'
+   else
+    flash.now.alert = @user.errors.full_messages.to_sentence
+    render :new  
+  end
+ends
 
   # PATCH/PUT /users/1 or /users/1.json
   # def update
