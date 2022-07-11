@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_07_07_150853) do
     t.string "title"
     t.string "location"
     t.string "user"
-    t.string "group"
+    t.integer "group_id"
     t.string "date"
     t.string "time"
     t.datetime "created_at", precision: 6, null: false

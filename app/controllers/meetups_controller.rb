@@ -34,7 +34,6 @@ class MeetupsController < ApplicationController
   #   end
   # end
   def create
-    byebug
       @meetup = Meetup.new(meetup_params)
       if @meetup.save
         flash.notice = "The meetup record was created successfully."

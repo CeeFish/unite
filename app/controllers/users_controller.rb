@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   layout 'user_layout'
   before_action :set_user, only: %i[ show edit update destroy ]
+  skip_before_action :authorized, only: [:new, :create]
 
   # GET /users or /users.json
   def index
@@ -35,16 +36,22 @@ class UsersController < ApplicationController
   #     end
   #   end
   # end
-  def create
-      @user = User.new(user_params)
-      if @user.save
-        flash.notice = "The user record was created successfully."
-        redirect_to @user
-      else
-        flash.now.alert = @user.errors.full_messages.to_sentence
-        render :new  
-      end
-  end
+  # def create
+  #     @user = User.new(user_params)
+  #     if @user.save
+  #       flash.notice = "The user record was created successfully."
+  #       redirect_to @user
+  #     else
+  #       flash.now.alert = @user.errors.full_messages.to_sentence
+  #       render :new  
+  #     end
+  # end
+def create
+   @user = User.create(params.require(:user).permit(:username,        
+   :password))
+   session[:user_id] = @user.id
+   redirect_to '/welcome'
+end
 
   # PATCH/PUT /users/1 or /users/1.json
   # def update
