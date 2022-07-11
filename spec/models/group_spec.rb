@@ -41,13 +41,5 @@ RSpec.describe "GroupsControllers", type: :request do
       expect(response).to render_template(:new)
     end
   end
-  # describe "put group_path with valid data" do
-  #   it "updates an entry and redirects to the show path for the group"
-  # end
-  # describe "put group_path with invalid data" do
-  #   it "does not update the group record or redirect"
-  # end
-  # describe "delete a group record" do
-  #   it "deletes a group record"
-  # end
+
 end

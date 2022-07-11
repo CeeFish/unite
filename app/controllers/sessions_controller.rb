@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-  skip_before_action :authorized, only: [:new, :create, :welcome, :users]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :user]
   def new
   end
 

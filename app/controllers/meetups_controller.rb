@@ -14,6 +14,7 @@ class MeetupsController < ApplicationController
   # GET /meetups/new
   def new
     @meetup = Meetup.new
+    @user_id = params[:user_id]
   end
 
   # GET /meetups/1/edit
@@ -21,18 +22,6 @@ class MeetupsController < ApplicationController
   end
 
   # POST /meetups or /meetups.json
-  # def create
-  #   @meetup = Meetup.new(meetup_params)
-  #   respond_to do |format|
-  #     if @meetup.save
-  #       format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully created." }
-  #       format.json { render :show, status: :created, location: @meetup }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @meetup.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
   def create
       @meetup = Meetup.new(meetup_params)
       if @meetup.save

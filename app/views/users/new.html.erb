@@ -1,12 +1,3 @@
-<%
-=begin%>
- <h1>New User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %> 
-<%
-=end%>
 <h1>Sign Up</h1>
 <%= form_for @user do |f|%>
   <%= f.label :name%><br>
@@ -16,4 +7,8 @@
   <%= f.label :password%><br>
   <%= f.password_field :password%><br>
   <%= f.submit %>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'Back', users_path %> 
 <%end%>
