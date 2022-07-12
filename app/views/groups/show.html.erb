@@ -1,14 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-4">
+  <div class="card mt-2 mb-2 rounded">
+    <div class="card-body">
+    
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
+      <p>
+        <strong>Title:</strong>
+        <%= @group.title %>
+      </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @group.location %>
-</p>
+      <p>
+        <strong>Location:</strong>
+        <%= @group.location %>
+      </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+      <!--Current group members -->
+      <% if !@group.users.exists? %>
+        <p>No members...</p>
+      <% else %>
+        <table>
+          <tr>
+            <th>User</th>
+          </tr>
+
+          <% @group.users.each do |users| %>
+            <tr>
+              <td><%= users.name%></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+
+      <%= link_to 'Edit', edit_group_path(@group) %> |
+      <%= link_to 'Back', groups_path %>
+
+    </div>
+  </div>
+</div>

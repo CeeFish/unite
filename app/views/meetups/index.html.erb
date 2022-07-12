@@ -19,7 +19,7 @@
       <tr>
         <td><%= meetup.title %></td>
         <td><%= meetup.location %></td>
-        <td><%= meetup.group_id %></td>
+        <td><%= meetup.group.title %></td>
         <td><%= meetup.date %></td>
         <td><%= meetup.time %></td>
         <td><%= link_to 'Show', meetup %></td>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Meetup', new_meetup_path %>
+<%= link_to 'New Meetup', new_meetup_path, class: "btn btn-primary" %>

@@ -64,13 +64,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    #Setting up the meetup for the user
-    def meetup
-      if @user.group_id.present?
-        @meetup = Meetup.create(meetup_id: @user.meetup_id, user_id: @user.id)
-      end
-    end
-
     def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s

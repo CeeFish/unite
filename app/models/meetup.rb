@@ -1,6 +1,5 @@
 class Meetup < ApplicationRecord
     belongs_to :group
-    belongs_to :user
     has_many :users, through: :groups
 
     validates_associated :user
@@ -8,4 +7,5 @@ class Meetup < ApplicationRecord
     validates :location, presence: true
     validates :date, presence: true
     validates :time, presence: true
+    validates :group, presence: true
 end

@@ -34,17 +34,6 @@ class MeetupsController < ApplicationController
   end
 
   # PATCH/PUT /meetups/1 or /meetups/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @meetup.update(meetup_params)
-  #       format.html { redirect_to meetup_url(@meetup), notice: "Meetup was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @meetup }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @meetup.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
  def update
     if @meetup.update(meetup_params)
       flash.notice = "The meetup record was updated successfully."
@@ -73,6 +62,13 @@ class MeetupsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def meetup_params
       params.require(:meetup).permit(:title, :location, :group, :date, :time)
+    end
+
+     #Setting up the meetup for the user
+    def meetup
+      if @user.group_id.present?
+        @meetup = Meetup.create(meetup_id: @user.meetup_id, user_id: @user.id)
+      end
     end
 
     def catch_not_found(e)

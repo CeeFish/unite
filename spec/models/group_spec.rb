@@ -18,12 +18,6 @@ RSpec.describe "GroupsControllers", type: :request do
       expect(response).to redirect_to groups_path
     end
   end
-# describe "get new_group_path" do
-#     it "renders the :new template"
-#   end
-#   describe "get edit_group_path" do
-#     it "renders the :edit template"
-#   end
   describe "post groups_path with valid data" do
     it "saves a new entry and redirects to the show path for the entry" do
       group_attributes = FactoryBot.attributes_for(:group)

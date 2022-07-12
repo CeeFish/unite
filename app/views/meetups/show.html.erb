@@ -12,7 +12,7 @@
 
 <p>
   <strong>Group:</strong>
-  <%= @meetup.group %>
+  <%= @meetup.group.title %>
 </p>
 
 <p>
@@ -25,5 +25,6 @@
   <%= @meetup.time %>
 </p>
 
-<%= link_to 'Edit', edit_meetup_path(@group) %> |
-<%= link_to 'Back', meetups_path %>
+<%= link_to 'Edit', edit_meetup_path(@meetup) %> |
+<%= link_to 'Back', meetups_path %> 
+
