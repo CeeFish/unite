@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   skip_before_action :authorized, only: [:new, :create, :welcome, :user]
+  
   def new
   end
 
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
         sessions[:user_id] = @user.id
-        redirect_to '/user'
+        redirect_to @user
     else
         redirect_to '/login'
     end

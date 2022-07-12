@@ -23,9 +23,14 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-   @user = User.create(user_params)
-   session[:user_id] = @user.id
-   redirect_to '/users'
+   @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
+   else
+      flash.now.alert = @user.errors.full_messages.to_sentence
+      render :new
+    end
   end
 
   # PATCH/PUT /users/1 or /users/1.json

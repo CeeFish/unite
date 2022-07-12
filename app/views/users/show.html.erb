@@ -15,21 +15,5 @@
   <%= @user.password %>
 </p>
 
-<% if !@user.group_id.present? %>
-  <p> This user is not currently apart of any group. </p>
-<% elsif @user.group_id.present? %>
-  <table>
-    <tr>
-      <th>Group</th>
-      <th>Joined</th>
-    </tr>
-    <%@user.meetup.each do |g| %>
-      <% e = @user.meetup[g].group_id %>
-      <% group = Group.find_by(id: e) %>
-      <td><%= group.name %></td>
-    <% end %>
-  </table>
-<% end %>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

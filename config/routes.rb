@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   resources :users, only: [:new, :create, :delete]
+   resources :users, only: [:new, :create, :delete, :show]
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'
    get 'welcome', to: 'sessions#welcome'
@@ -8,7 +8,4 @@ Rails.application.routes.draw do
    resources :groups
    resources :meetups
 end
-
-#   resources :users
 #   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-# end
