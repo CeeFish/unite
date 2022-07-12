@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   resources :users, only: [:new, :create, :delete, :show]
+   resources :users
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'
    get 'welcome', to: 'sessions#welcome'

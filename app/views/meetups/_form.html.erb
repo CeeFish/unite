@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :group %>
-    <%= form.collection_select :group, Group.all, :id, :title, include_blank: true %>
+    <%= form.collection_select :group_id, Group.all, :id, :title, include_blank: true %>
   </div>
 
   <div class="field">
@@ -37,6 +37,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit, class: "btn btn-primary" %>
+    <%= form.submit %>
   </div>
 <% end %>
