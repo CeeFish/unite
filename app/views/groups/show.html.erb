@@ -14,23 +14,6 @@
         <%= @group.location %>
       </p>
 
-      <!--Current group members -->
-      <% if !@group.users.exists? %>
-        <p>No members...</p>
-      <% else %>
-        <table>
-          <tr>
-            <th>User</th>
-          </tr>
-
-          <% @group.users.each do |users| %>
-            <tr>
-              <td><%= users.name%></td>
-            </tr>
-          <% end %>
-        </table>
-      <% end %>
-
       <%= link_to 'Edit', edit_group_path(@group) %> |
       <%= link_to 'Back', groups_path %>
 
