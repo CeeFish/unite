@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
         # sessions[:user_id] = @user.id
       log_in @user
-      redirect_to @user
+      redirect_to users_path
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
@@ -21,6 +21,11 @@ class SessionsController < ApplicationController
   end
 
   def page_requires_login
+  end
+
+  def destroy
+    session.delete :user_id
+    redirect_to '/'
   end
 
   def catch_not_found(e)

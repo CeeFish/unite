@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
       if @user.update(user_params)
         flash.notice = "The user record was updated successfully."
-        redirect_to @user
+        redirect_to users_path
       else
         flash.now.alert = @user.errors.full_messages.to_sentence
         render :edit
