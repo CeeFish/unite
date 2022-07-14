@@ -17,14 +17,20 @@
  *= require_self
  */
 
- h1 {
-     font-family: 'Acme';
- }
+body {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
 
- .card {
-     border-color: black;
- }
+.footer {
+    position: sticky;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}
 
- .btn {
-     color: black;
- }
+.li{
+    list-style-type: none;
+}
