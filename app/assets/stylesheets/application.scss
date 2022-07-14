@@ -12,7 +12,6 @@
  *
  @import "bootstrap-sprockets";
  @import "bootstrap";
- *= require bootstrap
  *= require_tree .
  *= require_self
  */
@@ -33,4 +32,17 @@ body {
 
 .li{
     list-style-type: none;
+}
+
+@font-face {
+    font-family: 'Acme';
+    src: url('Acme.ttf');
+}
+
+h1 {
+    font-family: 'Acme';
+}
+
+.card {
+    border-color: black;
 }
