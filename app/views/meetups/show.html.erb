@@ -1,0 +1,36 @@
+<div class="col-md-4">
+  <div class="card mt-2 mb-2 rounded">
+    <div class="card-body">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Title:</strong>
+        <%= @meetup.title %>
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        <%= @meetup.location %>
+      </p>
+
+      <p>
+        <strong>Group:</strong>
+        <%= @meetup.group.title %>
+      </p>
+
+      <p>
+        <strong>Date:</strong>
+        <%= @meetup.date %>
+      </p>
+
+      <p>
+        <strong>Time:</strong>
+        <%= @meetup.time %>
+      </p>
+
+      <%= link_to 'Edit', edit_meetup_path(@meetup) %> |
+      <%= link_to 'Back', meetups_path %>
+      
+    </div>
+  </div>
+</div>

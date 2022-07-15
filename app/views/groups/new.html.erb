@@ -1,0 +1,17 @@
+<div class="container mx-auto">
+    <div class="row justify-content-around mt-5">
+        <div class="col-4 text-center">
+            <h1>New Group</h1>
+
+            <%= render 'form', group: @group, class: "btn btn-primary" %>
+        </div>
+    </div>
+</div>
+
+
+<%
+=begin%>
+ <%= link_to 'Back', groups_path %>  
+<%
+=end%>
+
