@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Final</title>
+    <title>Rails Final Project</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +11,7 @@
   </head>
 
   <body>
-      <% if !flash[:alert].nil? %>
-        <p class="my_alert"><%= flash[:alert] %></p>
-      <% end %>
-    
+
     <%= yield %>
   </body>
 </html>

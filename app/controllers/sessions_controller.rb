@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-        # sessions[:user_id] = @user.id
-      log_in @user
+      sessions[:user_id] = @user.id
+      # log_in @user
       redirect_to users_path
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
@@ -24,8 +24,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
-    redirect_to '/'
+    reset_session
+    redirect_to login_path 
   end
 
   def catch_not_found(e)

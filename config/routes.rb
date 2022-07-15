@@ -4,10 +4,12 @@ Rails.application.routes.draw do
    post 'login', to: 'sessions#create'
    get 'welcome', to: 'sessions#welcome'
    get 'authorized', to: 'sessions#page_requires_login'
-   delete 'logout', to: 'sessions#destroy'
+   # get 'logout', to: 'sessions#destroy'
+   get "logout", to: 'sessions#destroy', as: :logout
 
    resources :groups
    resources :meetups
+   resources :sessions
    root to: 'users#new'
 end
 #   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

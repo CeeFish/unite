@@ -11,7 +11,20 @@
       <%= f.submit %>
     <% end %>
   </div>
+
   <div class= 'col'>
+  <% form_for @user do |f|%>
+      <%= f.label :email%><br>
+      <%= f.email_field :email%><br> 
+      <%= f.label :password%><br>
+      <%= f.password_field :password%><br>
+      <%= f.submit %>
+      <%= button_to "Login", '/login', method: :get%>
+    <% end %>
+  </div>
+  <%
+=begin%>
+ <div class= 'col'>
       <%= button_to "Login", '/login', method: :get%>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           
@@ -24,5 +37,7 @@
 
             <%= f.submit "Log in" %>
             <% end %>
-  </div>
+  </div> 
+<%
+=end%>
 </div>

@@ -15,6 +15,10 @@
   <strong>Password:</strong>
   <%= @user.password %>
 </p>
-
+<%
+=begin%>
+ 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> 
+<%= link_to 'Back', users_path %>  
+<%
+=end%>
