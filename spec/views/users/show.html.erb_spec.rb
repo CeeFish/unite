@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "users/show", type: :view do
-  before(:each) do
+    before(:each) do
     @user = assign(:user, User.create!(
       name: "Name",
-      email: "Email",
-      password: ""
+      email: "Email@test.com",
+      password: "123456" #or another password that adheres to your validations
     ))
   end
 

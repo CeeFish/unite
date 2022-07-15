@@ -10,34 +10,46 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- @import "bootstrap-sprockets";
- @import "bootstrap";
  *= require_tree .
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 body {
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0;
+    background-color: rgb(243, 230, 225);
+}
+
+.bootstrap-overrides h1 {
+    line-height: 1;
+    color: inherit;
 }
 
 .jumbotron {
-    background-image: url('entre1.jpg');
+    background-image: url('teal.jpg');
     background-size: cover;
+    width: 100%;
+    border-style: double;
 }
 
-.navbar {
-    color: purple;
+.navbar .navbar-brand {
+    color: black;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.container {
+    color: black;
 }
 
 .footer {
+    bottom: 0;
     position: sticky;
     width: 100%;
-    left: 0;
-    bottom: 0;
     text-align: center;
-    color: purple;
+    position: absolute;
 }
 
 @font-face {
@@ -56,3 +68,4 @@ h1 {
 .btn {
     color: black;
 }
+

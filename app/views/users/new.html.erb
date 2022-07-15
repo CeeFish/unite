@@ -4,17 +4,20 @@
 <%
 =end%>
 
-<div class= 'row'>
-  <div class= 'col'>
-    <h1>Sign Up</h1>
-    <%= form_for @user do |f|%>
-      <%= f.label :name%><br>
-      <%= f.text_field :name%><br>
-      <%= f.label :email%><br>
-      <%= f.email_field :email%><br> 
-      <%= f.label :password%><br>
-      <%= f.password_field :password%><br>
-      <%= f.submit %>
-    <% end %>
-  </div>
+<div class="container mx-auto">
+    <div class="row justify-content-around mt-5">
+        <div id="group" class="col-4 text-center">
+          <h1 id='home'>Sign Up</h1>
+          <%= form_for @user do |f|%>
+            <%= f.label :name%><br>
+            <%= f.text_field :name%><br>
+            <%= f.label :email%><br>
+            <%= f.email_field :email%><br> 
+            <%= f.label :password%><br>
+            <%= f.password_field :password%><br>
+            <%= f.submit %>
+          <% end %>
+        </div>
+    </div>
+</div>
  
