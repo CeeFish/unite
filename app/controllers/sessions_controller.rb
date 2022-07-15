@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   def catch_not_found(e)
       Rails.logger.debug("We had a not found exception.")
       flash.alert = e.to_s
-      redirect_to orders_path
+      redirect_to sessions_path
     end
 end

@@ -1,6 +1,6 @@
 <%
 =begin%>
- Welcome page afer user signs in. 
+ Welcome page afer user signs in with log out button. 
 <%
 =end%>
 <h1>Welcome</h1>
@@ -8,9 +8,5 @@
     <h1>You are Logged In, <%= current_user.name %></h1>
 <%end%>
 
-<%
-=begin%>
- <%= button_to "Logout", '/logout', method: :destroy%> 
-<%
-=end%>
-<%= link_to "Log out", logout_path %>
+<%= button_to "Logout", '/logout', method: :get%>
+
