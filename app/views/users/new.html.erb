@@ -1,3 +1,9 @@
+<%
+=begin%>
+ First page rooted to users#new with create user and login forms 
+<%
+=end%>
+
 <div class= 'row'>
   <div class= 'col'>
     <h1>Sign Up</h1>
@@ -11,33 +17,18 @@
       <%= f.submit %>
     <% end %>
   </div>
-
-  <div class= 'col'>
-  <% form_for @user do |f|%>
-      <%= f.label :email%><br>
-      <%= f.email_field :email%><br> 
-      <%= f.label :password%><br>
-      <%= f.password_field :password%><br>
-      <%= f.submit %>
-      <%= button_to "Login", '/login', method: :get%>
-    <% end %>
-  </div>
-  <%
+ <%
 =begin%>
+ <br>
  <div class= 'col'>
-      <%= button_to "Login", '/login', method: :get%>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
-          
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password" %>
-
-            <%= f.submit "Log in" %>
-            <% end %>
+    <%= form_for @user do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.submit "Log in" %>
+    <% end %>
   </div> 
+</div> 
 <%
 =end%>
-</div>
